@@ -22,6 +22,17 @@ public class SandwichShop {
         }else{
             System.out.print("Invalid entry ");
         }
+        System.out.print("Would you like that loaded? (yes/no) ");
+        String loadedChoice = scanner.nextLine().toLowerCase();
+        boolean loaded = loadedChoice.equals("yes");
+
+        if (loaded && choice.equals("regular")){
+            sandwich += 1.00;
+        }else if (loaded && choice.equals("large")){
+            sandwich += 1.75;
+        }else {
+            System.out.print("Not Loaded");
+        }
 
         System.out.print("How old are you? ");
         int age = scanner.nextInt();
@@ -35,6 +46,6 @@ public class SandwichShop {
         }
 
         double finalPrice = sandwich - (sandwich * discount);
-        System.out.print("The final price is " + finalPrice);
+        System.out.printf("The final price is $%.2f%n" , finalPrice);
     }
 }
